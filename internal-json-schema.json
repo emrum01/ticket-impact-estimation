@@ -1,0 +1,100 @@
+{
+  "ticket_analysis": {
+    "url": "Input Notion ticket URL",
+    "title": "Ticket title",
+    "is_bug_fix": false,
+    "functional_requirements": ["functional requirement 1", "functional requirement 2"],
+    "technical_requirements": ["technical requirement 1", "technical requirement 2"],
+    "ui_requirements": ["UI requirement 1", "UI requirement 2"],
+    "api_requirements": ["API requirement 1", "API requirement 2"],
+    "data_requirements": ["data requirement 1", "data requirement 2"]
+  },
+  "root_cause_analysis": {
+    "root_cause_mechanism": "Detailed problem occurrence mechanism",
+    "problematic_code_locations": ["problematic code location 1", "problematic code location 2"],
+    "why_problem_occurred": "Background and reasons for problem occurrence"
+  },
+  "impact_analysis": {
+    "frontend_impact": {
+      "has_impact": true,
+      "affected_components": ["component1", "component2"],
+      "affected_pages": ["page1", "page2"],
+      "affected_apis": ["api1", "api2"],
+      "affected_hooks": ["hook1", "hook2"],
+      "new_files_needed": ["new file 1", "new file 2"],
+      "complexity_level": "medium"
+    },
+    "backend_impact": {
+      "has_impact": true,
+      "affected_handlers": ["handler1", "handler2"],
+      "affected_services": ["service1", "service2"],
+      "affected_repositories": ["repo1", "repo2"],
+      "affected_models": ["model1", "model2"],
+      "schema_changes": ["table change 1", "table change 2"],
+      "migration_needed": true,
+      "complexity_level": "high"
+    },
+    "database_impact": {
+      "has_impact": false,
+      "schema_changes": [],
+      "migration_files": [],
+      "complexity_level": "none"
+    },
+    "config_impact": {
+      "has_impact": true,
+      "type_definitions": ["type1", "type2"],
+      "config_changes": ["config change 1", "config change 2"],
+      "environment_variables": ["ENV_VAR1", "ENV_VAR2"],
+      "complexity_level": "low"
+    }
+  },
+  "complexity_evaluation": {
+    "technical_complexity": 0.8,
+    "implementation_complexity": 0.7,
+    "integration_complexity": 0.9,
+    "testing_complexity": 0.6,
+    "overall_complexity": 0.75,
+    "risk_factors": [
+      "Multiple system integration required",
+      "Complex data migration needed"
+    ]
+  },
+  "time_estimation": {
+    "estimated_hours": 12,
+    "estimation_reasoning": [
+      "Frontend implementation: 5 hours (medium-scale component development)",
+      "Backend API implementation: 4 hours (new endpoint + business logic)",
+      "Database changes: 2 hours (migration + testing)",
+      "Integration testing & adjustments: 1 hour"
+    ],
+    "confidence_level": "medium",
+    "assumptions": [
+      "Following existing architecture patterns",
+      "External API specifications are clear",
+      "Test environment is prepared"
+    ],
+    "potential_blockers": [
+      "Additional time needed if external system API changes required",
+      "Time increase if complex data migration needed"
+    ]
+  },
+  "implementation_plan": {
+    "recommended_approach": [
+      "Phase 1: Data model & API design (2 hours)",
+      "Phase 2: Backend implementation (4 hours)",
+      "Phase 3: Frontend implementation (5 hours)",
+      "Phase 4: Testing & adjustments (1 hour)"
+    ],
+    "priority_order": [
+      "High priority: Data layer changes",
+      "Medium priority: API implementation",
+      "Medium priority: UI implementation",
+      "Low priority: Performance optimization"
+    ],
+    "testing_strategy": [
+      "Unit tests: Basic functionality of each layer",
+      "Integration tests: API-UI connectivity",
+      "E2E tests: Main user flows"
+    ]
+  }
+}
