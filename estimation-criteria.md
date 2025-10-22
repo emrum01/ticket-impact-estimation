@@ -1,59 +1,59 @@
-# Effort Estimation Criteria
+# 工数見積もり基準
 
-## Time Range Definitions
+## 時間範囲定義
 
-### 2 hours
-- Simple UI modifications
-- Minor API modifications
-- Configuration changes
-- Minor changes to existing components
+### 2時間
+- シンプルなUI修正
+- 軽微なAPI修正
+- 設定変更
+- 既存コンポーネントの軽微な変更
 
-### 4 hours
-- Small-scale feature additions
-- Single component implementation
-- Simple API endpoint addition
-- Minor validation additions
+### 4時間
+- 小規模機能追加
+- 単一コンポーネント実装
+- シンプルなAPIエンドポイント追加
+- 軽微なバリデーション追加
 
-### 8 hours
-- Medium-scale feature additions
-- Multiple component coordination
-- API + UI implementation
-- Medium-complexity business logic implementation
+### 8時間
+- 中規模機能追加
+- 複数コンポーネント連携
+- API + UI実装
+- 中程度の複雑性ビジネスロジック実装
 
-### 12 hours
-- Large-scale feature additions
-- Data structure changes
-- Complex business logic
-- Multi-system integration
+### 12時間
+- 大規模機能追加
+- データ構造変更
+- 複雑なビジネスロジック
+- マルチシステム統合
 
-### 16 hours
-- Large-scale architecture changes
-- Multiple system integration
-- Complex data migration
-- New technology stack introduction
+### 16時間
+- 大規模アーキテクチャ変更
+- 複数システム統合
+- 複雑なデータ移行
+- 新技術スタック導入
 
-## Estimation Multipliers
+## 見積もり倍率
 
-### Frontend Complexity Multiplier
-- **1.0**: Following existing patterns
-- **1.2**: New UI patterns
-- **1.5**: Complex state management
+### フロントエンド複雑性倍率
+- **1.0**: 既存パターンに従う
+- **1.2**: 新しいUIパターン
+- **1.5**: 複雑な状態管理
 
-### Backend Complexity Multiplier
-- **1.0**: Standard CRUD operations
-- **1.3**: Complex business logic
-- **1.5**: External system integration
+### バックエンド複雑性倍率
+- **1.0**: 標準的なCRUD操作
+- **1.3**: 複雑なビジネスロジック
+- **1.5**: 外部システム統合
 
-### Data Layer Change Multiplier
-- **1.2**: Adding columns to existing tables
-- **1.5**: Creating new tables
-- **2.0**: Complex migration
+### データ層変更倍率
+- **1.2**: 既存テーブルへのカラム追加
+- **1.5**: 新しいテーブル作成
+- **2.0**: 複雑な移行
 
-### External Integration Multiplier
-- **1.3**: Extending existing APIs
-- **1.5**: New API integration
-- **2.0**: Complex data transformation
+### 外部統合倍率
+- **1.3**: 既存API拡張
+- **1.5**: 新しいAPI統合
+- **2.0**: 複雑なデータ変換
 
-### New Technology/Unfamiliar Domain Multiplier
-- **1.5**: Technology with team experience
-- **2.0**: Completely new technology domain
+### 新技術/未経験領域倍率
+- **1.5**: チーム経験がある技術
+- **2.0**: 完全に新しい技術領域
