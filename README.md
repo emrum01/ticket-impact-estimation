@@ -12,6 +12,11 @@ ticket-impact-analysis-with-estimation/
 │   ├── analysis-commands.md                       # コードベース分析コマンド集
 │   ├── notion-page-template.md                    # レポート出力テンプレート
 │   └── internal-json-schema.json                  # 内部データ構造定義
+├── examples/                                       # 見積もり作成例
+│   ├── example-2hours-ui-fix.md                   # 2時間例（UI修正）
+│   ├── example-8hours-feature-add.md              # 8時間例（機能追加）
+│   ├── example-16hours-architecture-change.md     # 16時間例（大規模変更）
+│   └── README.md                                   # 例の説明
 └── README.md                                       # 本ドキュメント
 ```
 
@@ -38,6 +43,14 @@ ticket-impact-analysis-with-estimation/
 - Notion API アクセス権限
 - AIアシスタント（Claude、ChatGPT等）
 - 構造化されたコードベース
+
+## 📚 作成例
+
+異なる複雑度レベルの実際の見積もり例を [examples/](examples/) ディレクトリに収録しています：
+
+- **2時間例**: UI修正（ボタンスタイル変更）
+- **8時間例**: 機能追加（プロフィール画像アップロード）
+- **16時間例**: アーキテクチャ変更（リアルタイム通知システム）
 
 ---
 
