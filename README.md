@@ -103,43 +103,45 @@ ticket-impact-analysis-with-estimation/
 
 ### 5. `docs/schemas/internal-json-schema.json` - 内部データ構造定義
 
-**目的**: 分析処理中のデータ構造標準化（※現在は参照のみ、実装予定）
+**目的**: 分析処理中のデータ構造標準化のためのJSONスキーマ定義
 
-**想定構造**:
-```json
-{
-  "ticket_info": { "title": "...", "requirements": [...] },
-  "impact_analysis": {
-    "frontend": { "affected_files": [...], "new_files": [...] },
-    "backend": { "affected_files": [...], "new_files": [...] },
-    "database": { "schema_changes": [...] }
-  },
-  "estimation": {
-    "base_hours": 8,
-    "complexity_multiplier": 1.2,
-    "final_estimation": 12
-  }
-}
-```
+**提供内容**:
+- チケット情報の標準化された構造定義
+- 影響分析結果（フロントエンド・バックエンド・データベース）の構造
+- 工数見積もり結果と複雑性倍率の定義
+- 実装フェーズ計画とリスク評価の構造
+- 分析メタデータ（実行日時、バージョン等）の定義
+
+**主要構造**:
+- `ticket_info`: チケット基本情報（タイトル、URL、要件）
+- `impact_analysis`: フロントエンド・バックエンド・データベースの影響分析
+- `estimation`: 基本時間・複雑性倍率・最終見積もり・信頼度
+- `implementation_phases`: フェーズ別実装計画
+- `risks`: リスクカテゴリと対応策
+- `metadata`: 分析実行情報
 
 ## 🚀 使用方法
 
 ### 基本的な使用手順
 
-1. **プロンプト読み込み**: `prompts/ticket-impact-analysis-with-estimation.md` をAIアシスタントに読み込ませる
+1. **プロンプト読み込み**:
+   - `prompts/ticket-impact-analysis-with-estimation.md` をAIアシスタントに読み込ませる
+   - 関連ファイル（見積もり基準、分析コマンド、テンプレート）も合わせて参照
 
 2. **チケット分析実行**: NotionチケットURLを引数として指定
    ```
-   [AIアシスタント] <NotionチケットURL>
+   <NotionチケットURL> を分析してください
    ```
 
 3. **自動分析実行**: AIが以下を順次実行
-   - Notion APIでチケット内容取得
-   - `prompts/analysis-commands.md` のコマンドでコードベース分析
-   - `prompts/estimation-criteria.md` の基準で工数見積もり
-   - `prompts/templates/notion-page-template.md` でレポート生成
+   - Notion APIでチケット内容取得・解析
+   - `prompts/analysis-commands.md` のコマンドでコードベース影響分析
+   - `prompts/estimation-criteria.md` の基準に基づく工数見積もり
+   - `prompts/templates/notion-page-template.md` に従ったレポート生成
 
-4. **結果確認**: 生成されたNotionサブページで分析結果・実装計画を確認
+4. **結果確認**:
+   - 生成されたNotionサブページで詳細分析結果を確認
+   - 実装計画・リスク評価・チェックリストを活用して開発計画立案
 
 ### 高度な使用方法
 
@@ -158,8 +160,8 @@ ticket-impact-analysis-with-estimation/
 
 ### 技術環境
 - Notion API アクセス権限
-- コードベース分析ツール（MCP Serena等）
-- AIアシスタント（Claude Code等）
+- コードベース分析ツール（MCP Serena、Claude Code等）
+- AIアシスタント（Claude、ChatGPT等でプロンプトを実行）
 
 ### プロジェクト要件
 - Gitベースのバージョン管理
@@ -211,7 +213,7 @@ graph TD
 
 ## 📝 ライセンス
 
-MIT License - 詳細は [LICENSE](LICENSE) ファイルを参照
+MIT License
 
 ## 🔗 関連リソース
 
@@ -221,6 +223,7 @@ MIT License - 詳細は [LICENSE](LICENSE) ファイルを参照
 
 ---
 
-**作成者**: AI-assisted development tool
+**作成者**: h_iwakubo
 **バージョン**: 1.0.0
-**最終更新**: 2025年1月17日
+**最終更新**: 2025年1月22日
+**リポジトリ**: [ticket-impact-estimation](https://github.com/emrum01/ticket-impact-estimation)
