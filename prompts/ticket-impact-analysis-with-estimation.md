@@ -89,7 +89,7 @@ mcp__serena__list_dir("backend", recursive=false)   # 必要に応じてパス�
 ## 出力規則
 
 ### 分析結果（内部JSON）
-分析処理は [internal-json-schema.json](./internal-json-schema.json) 構造を使用して結果を管理し、マークダウンレポート生成時に参照。
+分析処理は [internal-json-schema.json](../docs/schemas/internal-json-schema.json) 構造を使用して結果を管理し、マークダウンレポート生成時に参照。
 
 ### 影響評価基準
 - **影響あり**: いずれかのaffected_*配列またはnew_files_needed配列にアイテムがある場合
@@ -143,7 +143,7 @@ mcp__notionApi__notion-create-pages({
 ### レポートテンプレート
 
 #### Notion用
-[notion-page-template.md](./notion-page-template.md) を使用してNotionサブページを生成。
+[notion-page-template.md](./templates/notion-page-template.md) を使用してNotionサブページを生成。
 
 ## 開始メッセージ
 Notionチケット影響分析と工数見積もりを開始します。
@@ -166,9 +166,13 @@ Notionチケット影響分析と工数見積もりを開始します。
 ## ファイル構造
 ```
 ticket-impact-analysis-with-estimation/
-├── ticket-impact-analysis-with-estimation.md  # メインプロンプトファイル
-├── internal-json-schema.json                  # 内部JSON構造定義
-├── notion-page-template.md                    # Notionページテンプレート
-├── estimation-criteria.md                     # 工数見積もり基準
-└── analysis-commands.md                       # 分析コマンド集
+├── prompts/
+│   ├── ticket-impact-analysis-with-estimation.md  # メインプロンプトファイル
+│   ├── estimation-criteria.md                     # 工数見積もり基準
+│   ├── analysis-commands.md                       # 分析コマンド集
+│   └── templates/
+│       └── notion-page-template.md                # Notionページテンプレート
+└── docs/
+    └── schemas/
+        └── internal-json-schema.json              # 内部JSON構造定義
 ```

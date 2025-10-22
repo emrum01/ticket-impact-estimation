@@ -1,0 +1,228 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "チケット影響分析結果",
+  "description": "AIによるチケット分析結果の内部データ構造",
+  "type": "object",
+  "properties": {
+    "ticket_info": {
+      "type": "object",
+      "description": "チケット基本情報",
+      "properties": {
+        "title": {
+          "type": "string",
+          "description": "チケットタイトル"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri",
+          "description": "NotionチケットURL"
+        },
+        "functional_requirements": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "機能要件リスト"
+        },
+        "technical_requirements": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "技術要件リスト"
+        }
+      },
+      "required": ["title", "url"]
+    },
+    "impact_analysis": {
+      "type": "object",
+      "description": "影響分析結果",
+      "properties": {
+        "frontend": {
+          "type": "object",
+          "properties": {
+            "affected_files": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "影響を受ける既存ファイル"
+            },
+            "new_files": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "新規作成が必要なファイル"
+            },
+            "complexity_level": {
+              "type": "string",
+              "enum": ["low", "medium", "high"],
+              "description": "フロントエンドの複雑度"
+            }
+          }
+        },
+        "backend": {
+          "type": "object",
+          "properties": {
+            "affected_files": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "影響を受ける既存ファイル"
+            },
+            "new_files": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "新規作成が必要なファイル"
+            },
+            "complexity_level": {
+              "type": "string",
+              "enum": ["low", "medium", "high"],
+              "description": "バックエンドの複雑度"
+            }
+          }
+        },
+        "database": {
+          "type": "object",
+          "properties": {
+            "schema_changes": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "enum": ["add_column", "create_table", "modify_column", "migration"]
+                  },
+                  "description": {
+                    "type": "string"
+                  }
+                }
+              },
+              "description": "データベーススキーマ変更"
+            },
+            "migration_complexity": {
+              "type": "string",
+              "enum": ["simple", "complex"],
+              "description": "マイグレーションの複雑度"
+            }
+          }
+        }
+      }
+    },
+    "estimation": {
+      "type": "object",
+      "description": "工数見積もり結果",
+      "properties": {
+        "base_hours": {
+          "type": "number",
+          "enum": [2, 4, 8, 12, 16],
+          "description": "基本時間"
+        },
+        "complexity_multipliers": {
+          "type": "object",
+          "properties": {
+            "frontend": {
+              "type": "number",
+              "minimum": 1.0,
+              "maximum": 2.0,
+              "description": "フロントエンド複雑性倍率"
+            },
+            "backend": {
+              "type": "number",
+              "minimum": 1.0,
+              "maximum": 2.0,
+              "description": "バックエンド複雑性倍率"
+            },
+            "data_layer": {
+              "type": "number",
+              "minimum": 1.0,
+              "maximum": 2.0,
+              "description": "データ層複雑性倍率"
+            }
+          }
+        },
+        "final_estimation": {
+          "type": "number",
+          "enum": [2, 4, 8, 12, 16],
+          "description": "最終見積もり時間"
+        },
+        "confidence_level": {
+          "type": "string",
+          "enum": ["high", "medium", "low"],
+          "description": "見積もりの信頼度"
+        }
+      },
+      "required": ["base_hours", "final_estimation", "confidence_level"]
+    },
+    "implementation_phases": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "phase_name": {
+            "type": "string",
+            "description": "フェーズ名"
+          },
+          "estimated_hours": {
+            "type": "number",
+            "description": "フェーズ別見積時間"
+          },
+          "tasks": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "フェーズ内タスクリスト"
+          }
+        }
+      },
+      "description": "実装フェーズ計画"
+    },
+    "risks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "category": {
+            "type": "string",
+            "enum": ["technical", "dependency", "complexity", "timeline"],
+            "description": "リスクカテゴリ"
+          },
+          "description": {
+            "type": "string",
+            "description": "リスク詳細"
+          },
+          "mitigation": {
+            "type": "string",
+            "description": "対応策"
+          }
+        }
+      },
+      "description": "技術的リスクと対応策"
+    },
+    "metadata": {
+      "type": "object",
+      "properties": {
+        "analysis_timestamp": {
+          "type": "string",
+          "format": "date-time",
+          "description": "分析実行日時"
+        },
+        "analyzer_version": {
+          "type": "string",
+          "description": "分析ツールバージョン"
+        },
+        "codebase_snapshot": {
+          "type": "string",
+          "description": "分析時のコードベースコミットハッシュ"
+        }
+      }
+    }
+  },
+  "required": ["ticket_info", "impact_analysis", "estimation"]
+}
